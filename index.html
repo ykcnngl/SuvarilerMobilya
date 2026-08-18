@@ -1,0 +1,2682 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Süvariler Mobilya ve Dekorasyon - 80'li yıllardan beri özel ölçü mutfak, banyo dolapları, kapı ve tüm marangozluk hizmetleri."
+    />
+    <title>Süvariler Mobilya ve Dekorasyon</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      /* --- GENEL AYARLAR --- */
+      :root {
+        --primary-color: #5c3a21;
+        --secondary-color: #d4a373;
+        --text-dark: #333333;
+        --text-light: #fefefe;
+        --bg-light: #f9f6f0;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background-color: var(--bg-light);
+        color: var(--text-dark);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+      }
+
+      /* --- MENÜ (NAVBAR) --- */
+      header {
+        background-color: var(--primary-color);
+        color: var(--text-light);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        transition:
+          background-color 0.4s ease,
+          backdrop-filter 0.4s ease,
+          box-shadow 0.4s ease;
+      }
+
+      header.scrolled {
+        background-color: rgba(92, 58, 33, 0.75);
+        backdrop-filter: blur(8px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 5%;
+        max-width: 1200px;
+        margin: 0 auto;
+        height: 100px;
+      }
+
+      .logo-container {
+        text-decoration: none;
+        height: 100%;
+        display: flex;
+        align-items: center;
+      }
+
+      .brand-wrapper {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        transition: transform 0.3s ease;
+      }
+
+      .brand-wrapper:hover {
+        transform: scale(1.02);
+      }
+
+      .navbar-logo {
+        max-height: 150px;
+        width: auto;
+        display: block;
+        filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.3));
+        transition: transform 0.3s ease;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+      }
+
+      .nav-links a {
+        color: var(--text-light);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--secondary-color);
+      }
+
+      /* --- ORTAK BÖLÜM AYARLARI --- */
+      section {
+        padding: 80px 5%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+        position: relative;
+        color: var(--primary-color);
+      }
+
+      .section-title::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 3px;
+        background-color: var(--secondary-color);
+        margin: 10px auto 0;
+      }
+
+      /* --- ANASAYFA --- */
+      #anasayfa {
+        position: relative;
+        height: 100vh;
+        width: 100vw;
+        max-width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        overflow: hidden;
+        background-color: #1a0f05;
+        padding: 0;
+        margin: 0;
+      }
+
+      #motion-canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        cursor: pointer;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        padding: 0 20px;
+        pointer-events: none;
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        pointer-events: auto;
+      }
+
+      #anasayfa h1 {
+        color: var(--text-light);
+        font-size: 3rem;
+        margin-bottom: 20px;
+        text-shadow: 0 3px 15px rgba(0, 0, 0, 0.9);
+      }
+
+      #anasayfa p {
+        font-size: 1.2rem;
+        margin-bottom: 40px;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+        color: #ddd;
+      }
+
+      .btn {
+        display: inline-block;
+        background-color: var(--secondary-color);
+        color: var(--text-dark);
+        padding: 12px 30px;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      }
+
+      .btn:hover {
+        background-color: #b58555;
+        color: var(--text-light);
+        transform: translateY(-2px);
+      }
+
+      .btn-outline {
+        background-color: transparent;
+        color: var(--secondary-color);
+        border: 2px solid var(--secondary-color);
+        box-shadow: none;
+      }
+
+      .btn-outline:hover {
+        background-color: var(--secondary-color);
+        color: var(--text-dark);
+        border-color: var(--secondary-color);
+      }
+
+      /* --- HAKKIMIZDA --- */
+      .about-content {
+        display: flex;
+        gap: 40px;
+        align-items: center;
+      }
+
+      .about-text {
+        flex: 1;
+      }
+
+      /* --- HİZMETLERİMİZ GERÇEK ÇEKMECE ANİMASYON SİSTEMİ --- */
+      .drawer-stage {
+        position: relative;
+        width: 100%;
+        max-width: 1100px;
+        margin: 0 auto;
+        min-height: 520px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        perspective: 1200px;
+        overflow: hidden;
+      }
+
+      .cabinet-box {
+        position: absolute;
+        top: 150px;
+        width: 360px;
+        height: 150px;
+        background: #e8e3dc;
+        border: 4px solid #d4cdbf;
+        border-radius: 8px;
+        box-shadow:
+          inset 0 15px 25px rgba(0, 0, 0, 0.1),
+          0 10px 20px rgba(0, 0, 0, 0.08);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 5;
+        transition: opacity 0.6s ease 1.5s;
+      }
+
+      .drawer-front {
+        position: absolute;
+        width: 310px;
+        height: 110px;
+        background: #ffffff;
+        border: 2px solid #e0dbd0;
+        border-radius: 6px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 6;
+        transition:
+          transform 2s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+          opacity 0.6s ease 1.5s;
+        transform: translateY(0);
+      }
+
+      .drawer-handle {
+        width: 80px;
+        height: 12px;
+        background: #2b1e16;
+        border-radius: 6px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      .drawer-stack {
+        position: absolute;
+        width: 240px;
+        height: 80px;
+        background: #fff;
+        border-radius: 6px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        z-index: 4;
+        opacity: 0;
+      }
+
+      .services-grid-drawer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+
+      .service-card-item {
+        background: #fff;
+        padding: 30px 20px;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+        border-bottom: 4px solid var(--secondary-color);
+        transform: translateY(100px) scale(0.85);
+        opacity: 0;
+        transition:
+          transform 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+          opacity 1.5s ease,
+          box-shadow 0.3s;
+      }
+
+      .service-card-item h3 {
+        font-size: 1.3rem;
+        color: var(--primary-color);
+        margin-bottom: 10px;
+      }
+
+      .service-card-item p {
+        font-size: 0.95rem;
+        color: #666;
+      }
+
+      /* ÇEKMECE TETİKLEME */
+      .drawer-stage.animate .drawer-front {
+        transform: translateY(220px);
+        opacity: 0;
+      }
+
+      .drawer-stage.animate .cabinet-box {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .drawer-stage.animate .services-grid-drawer {
+        opacity: 1;
+        pointer-events: auto;
+        position: relative;
+      }
+
+      .drawer-stage.animate .service-card-item {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
+      .drawer-stage.animate .service-card-item:nth-child(1) {
+        transition-delay: 0.3s;
+      }
+      .drawer-stage.animate .service-card-item:nth-child(2) {
+        transition-delay: 0.5s;
+      }
+      .drawer-stage.animate .service-card-item:nth-child(3) {
+        transition-delay: 0.7s;
+      }
+      .drawer-stage.animate .service-card-item:nth-child(4) {
+        transition-delay: 0.9s;
+      }
+      .drawer-stage.animate .service-card-item:nth-child(5) {
+        transition-delay: 1.1s;
+      }
+      .drawer-stage.animate .service-card-item:nth-child(6) {
+        transition-delay: 1.3s;
+      }
+      .drawer-stage.animate .service-card-item:nth-child(7) {
+        transition-delay: 1.5s;
+      }
+      .drawer-stage.animate .service-card-item:nth-child(8) {
+        transition-delay: 1.7s;
+      }
+      .drawer-stage.animate .service-card-item:nth-child(9) {
+        transition-delay: 1.9s;
+      }
+
+      .service-card-item:hover {
+        transform: translateY(-5px) !important;
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+      }
+
+      /* --- MOBİL MENÜ BUTONU (Masaüstünde Gizli) --- */
+      .menu-toggle {
+        display: none;
+        font-size: 1.8rem;
+        color: var(--text-light);
+        cursor: pointer;
+        z-index: 1100;
+        transition: transform 0.3s ease;
+      }
+
+      .menu-toggle:hover {
+        color: var(--secondary-color);
+      }
+
+      @media (max-width: 768px) {
+        nav {
+          height: 90px;
+        }
+        .navbar-logo {
+          max-height: 84px;
+        }
+
+        /* Butonu mobilde görünür yap */
+        .menu-toggle {
+          display: block;
+        }
+
+        /* Menüyü sağdan açılan bir sidebar'a çevir */
+        .nav-links {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          width: 70%;
+          max-width: 300px;
+          height: 100vh;
+          background-color: rgba(92, 58, 33, 0.95);
+          backdrop-filter: blur(10px);
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 30px;
+          transition: right 0.4s ease;
+          box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5);
+          z-index: 1000;
+        }
+
+        .nav-links.nav-active {
+          right: 0;
+        }
+
+        .nav-links a {
+          font-size: 1.3rem;
+          letter-spacing: 1px;
+        }
+
+        .about-content {
+          flex-direction: column;
+        }
+        #anasayfa h1 {
+          font-size: 2rem;
+        }
+        .hero-buttons {
+          flex-direction: column;
+          gap: 10px;
+        }
+        .back-btn-container {
+          flex-direction: column;
+          gap: 15px;
+          text-align: center;
+        }
+        .drawer-stage {
+          min-height: 1100px;
+        }
+      }
+
+      /* --- GALERİ ÇEKMECE & 9 KART ANİMASYONU --- */
+      .gallery-drawer-stage {
+        position: relative;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        min-height: 850px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        perspective: 1200px;
+      }
+
+      .gallery-drawer-stage .cabinet-box {
+        position: absolute;
+        top: 200px;
+        transition: opacity 0.6s ease 1.5s;
+      }
+
+      .gallery-grid-drawer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+
+      .cabinet-card {
+        perspective: 1200px;
+        position: relative;
+        height: 280px;
+        cursor: pointer;
+        background-color: #1c130d;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        overflow: visible;
+
+        transform: translateY(180px) scale(0.8);
+        opacity: 0;
+        transition:
+          transform 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+          opacity 1.5s ease,
+          box-shadow 0.3s;
+      }
+
+      /* Galeri Çekmece Tetiklenmesi */
+      .gallery-drawer-stage.animate-gallery .drawer-front {
+        transform: translateY(180px);
+        opacity: 0;
+      }
+
+      .gallery-drawer-stage.animate-gallery .cabinet-box {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .gallery-drawer-stage.animate-gallery .gallery-grid-drawer {
+        opacity: 1;
+        pointer-events: auto;
+        position: relative;
+      }
+
+      .gallery-drawer-stage.animate-gallery .cabinet-card {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
+      .gallery-drawer-stage.animate-gallery .cabinet-card:nth-child(1) {
+        transition-delay: 0.4s;
+      }
+      .gallery-drawer-stage.animate-gallery .cabinet-card:nth-child(2) {
+        transition-delay: 0.6s;
+      }
+      .gallery-drawer-stage.animate-gallery .cabinet-card:nth-child(3) {
+        transition-delay: 0.8s;
+      }
+      .gallery-drawer-stage.animate-gallery .cabinet-card:nth-child(4) {
+        transition-delay: 1s;
+      }
+      .gallery-drawer-stage.animate-gallery .cabinet-card:nth-child(5) {
+        transition-delay: 1.2s;
+      }
+      .gallery-drawer-stage.animate-gallery .cabinet-card:nth-child(6) {
+        transition-delay: 1.4s;
+      }
+      .gallery-drawer-stage.animate-gallery .cabinet-card:nth-child(7) {
+        transition-delay: 1.6s;
+      }
+      .gallery-drawer-stage.animate-gallery .cabinet-card:nth-child(8) {
+        transition-delay: 1.8s;
+      }
+      .gallery-drawer-stage.animate-gallery .cabinet-card:nth-child(9) {
+        transition-delay: 2s;
+      }
+
+      .cabinet-card:hover {
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+        transform: translateY(-3px) !important;
+      }
+
+      .cabinet-door {
+        position: absolute;
+        top: 0;
+        width: 50%;
+        height: 100%;
+        background-color: #3d2516;
+        background-size: 200% 100%;
+        background-repeat: no-repeat;
+        border: 2px solid #2b190e;
+        transition:
+          transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+          opacity 0.5s ease;
+        z-index: 3;
+        box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5);
+      }
+
+      .cabinet-door.left {
+        left: 0;
+        transform-origin: left center;
+        border-radius: 12px 0 0 12px;
+        border-right: 1px solid #1c1009;
+        background-position: left center;
+      }
+
+      .cabinet-door.right {
+        right: 0;
+        transform-origin: right center;
+        border-radius: 0 12px 12px 0;
+        border-left: 1px solid #1c1009;
+        background-position: right center;
+      }
+
+      .cabinet-mutfak .cabinet-door {
+        background-image:
+          linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)),
+          url("resimler/mutfak-dolabi.jpg");
+      }
+      .cabinet-yatak .cabinet-door {
+        background-image:
+          linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)),
+          url("resimler/yatak-odasi.jpg");
+      }
+      .cabinet-banyo .cabinet-door {
+        background-image:
+          linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)),
+          url("resimler/banyo-dolabi.jpg");
+      }
+      .cabinet-genc .cabinet-door {
+        background-image:
+          linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)),
+          url("resimler/genc-odasi.jpg");
+      }
+      .cabinet-bebek .cabinet-door {
+        background-image:
+          linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)),
+          url("resimler/bebek-odasi.jpg");
+      }
+      .cabinet-oturma .cabinet-door {
+        background-image:
+          linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)),
+          url("resimler/oturma-odasi.jpg");
+      }
+      .cabinet-ofis .cabinet-door {
+        background-image:
+          linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)),
+          url("resimler/ofis-mobilyasi.jpg");
+      }
+      .cabinet-ozel .cabinet-door {
+        background-image:
+          linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)),
+          url("resimler/ozel-tasarim.jpg");
+      }
+      .cabinet-kapi .cabinet-door {
+        background-image:
+          linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)),
+          url("resimler/kapi-tasarimi.jpg");
+      }
+
+      .cabinet-door::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 5px;
+        height: 45px;
+        background: #b58555;
+        transform: translateY(-50%);
+        border-radius: 3px;
+        box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+      }
+
+      .cabinet-door.left::after {
+        right: 10px;
+      }
+      .cabinet-door.right::after {
+        left: 10px;
+      }
+
+      .cabinet-label {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: linear-gradient(135deg, #2b190e, #4a2e1b);
+        color: var(--secondary-color);
+        padding: 12px 24px;
+        border-radius: 6px;
+        font-size: 1.15rem;
+        font-weight: 700;
+        text-align: center;
+        letter-spacing: 1px;
+        box-shadow:
+          0 4px 15px rgba(0, 0, 0, 0.6),
+          inset 0 0 5px rgba(214, 163, 115, 0.2);
+        border: 1px solid var(--secondary-color);
+        z-index: 4;
+        pointer-events: none;
+        white-space: nowrap;
+        transition:
+          transform 0.4s,
+          opacity 0.4s;
+      }
+
+      .cabinet-card:hover .cabinet-label {
+        transform: translate(-50%, -52%) scale(1.05);
+        color: #fff;
+        border-color: #fff;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
+      }
+
+      .cabinet-card.open .cabinet-door.left {
+        transform: rotateY(-115deg);
+      }
+      .cabinet-card.open .cabinet-door.right {
+        transform: rotateY(115deg);
+      }
+      .cabinet-card.open .cabinet-label {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+      }
+
+      .cabinet-inside {
+        z-index: 1;
+        text-align: center;
+        color: #fff;
+        padding: 20px;
+      }
+
+      .cabinet-inside i {
+        font-size: 3rem;
+        color: var(--secondary-color);
+        margin-bottom: 15px;
+        text-shadow: 0 0 10px rgba(214, 163, 115, 0.4);
+      }
+
+      .cabinet-inside h3 {
+        color: #fff;
+        font-size: 1.4rem;
+        margin: 0;
+      }
+
+      #gallery-details-view {
+        display: none;
+        animation: fadeIn 0.5s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(15px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .back-btn-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+        border-bottom: 2px solid var(--secondary-color);
+        padding-bottom: 15px;
+      }
+
+      .category-title-display {
+        font-size: 1.8rem;
+        color: var(--primary-color);
+        font-weight: bold;
+      }
+
+      .gallery-grid {
+        display: flex;
+        gap: 20px;
+        overflow-x: auto;
+        padding-bottom: 10px;
+        scroll-snap-type: x proximity;
+        justify-content: flex-start;
+      }
+
+      .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        flex: 0 0 clamp(240px, 28vw, 320px);
+        aspect-ratio: 4 / 3;
+        background-color: #ddd;
+        scroll-snap-align: start;
+      }
+
+      .gallery-grid::-webkit-scrollbar {
+        height: 8px;
+      }
+      .gallery-grid::-webkit-scrollbar-track {
+        background: rgba(92, 58, 33, 0.08);
+        border-radius: 999px;
+      }
+      .gallery-grid::-webkit-scrollbar-thumb {
+        background: rgba(92, 58, 33, 0.35);
+        border-radius: 999px;
+      }
+
+      .gallery-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(92, 58, 33, 0.85);
+        color: white;
+        padding: 12px;
+        text-align: center;
+        transform: translateY(100%);
+        transition: transform 0.3s ease-in-out;
+        font-weight: 600;
+      }
+
+      .gallery-item:hover .gallery-caption {
+        transform: translateY(0);
+      }
+
+      /* --- İLETİŞİM BÖLÜMÜ --- */
+      .contact-layout {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+      }
+
+      .contact-cards-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        width: 100%;
+        max-width: 1100px;
+        margin-bottom: 25px;
+        justify-items: center;
+      }
+
+      .contact-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        text-decoration: none;
+        width: 100%;
+        max-width: 330px;
+        height: 220px;
+        border-radius: 16px;
+        background-color: #1a120b;
+        background-image:
+          linear-gradient(rgba(15, 10, 5, 0.85), rgba(15, 10, 5, 0.92)),
+          url("resimler/hero-bg-clean.jpg");
+        background-size: cover;
+        background-position: center;
+        color: white;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+        border: 1px solid rgba(212, 163, 115, 0.15);
+        padding: 25px;
+        position: relative;
+        overflow: hidden;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease,
+          border-color 0.3s ease;
+      }
+
+      .contact-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        border-color: var(--secondary-color);
+      }
+
+      .contact-card i {
+        font-size: 2.8rem;
+        color: var(--secondary-color);
+        margin-bottom: 15px;
+        text-shadow: 0 0 15px rgba(212, 163, 115, 0.4);
+      }
+
+      .contact-card h4 {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 8px;
+        line-height: 1.4;
+      }
+
+      .contact-card p {
+        font-size: 0.9rem;
+        color: #b5aba1;
+        margin: 0;
+        font-weight: 500;
+      }
+
+      .full-address-text {
+        text-align: center;
+        font-size: 1.05rem;
+        color: var(--text-dark);
+        font-weight: 600;
+        margin-top: 15px;
+      }
+
+      /* --- EKRANDA SABİT DURAN SAĞ ALT BUTONLAR --- */
+      .sticky-buttons-container {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        z-index: 9999;
+      }
+
+      .sticky-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 55px;
+        height: 55px;
+        border-radius: 12px;
+        background-color: #2b2118;
+        color: var(--secondary-color);
+        text-decoration: none;
+        font-size: 1.8rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        transition:
+          transform 0.3s,
+          background-color 0.3s,
+          color 0.3s;
+        border: 1px solid rgba(212, 163, 115, 0.3);
+      }
+
+      .sticky-btn:hover {
+        transform: scale(1.1);
+        background-color: var(--secondary-color);
+        color: #2b2118;
+      }
+
+      /* --- FOOTER --- */
+      footer {
+        background-color: var(--text-dark);
+        color: var(--text-light);
+        text-align: center;
+        padding: 20px 0;
+        margin-top: 40px;
+      }
+
+      /* --- RESİM POP-UP (LIGHTBOX) AYARLARI --- */
+      .image-modal {
+        display: none;
+        position: fixed;
+        z-index: 99999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.85);
+        align-items: center;
+        justify-content: center;
+      }
+
+      .image-modal-content {
+        max-width: 90%;
+        max-height: 90vh;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        object-fit: contain;
+      }
+
+      .image-modal-close {
+        position: absolute;
+        top: 20px;
+        right: 40px;
+        color: white;
+        font-size: 50px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .image-modal-close:hover {
+        color: var(--secondary-color);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="#anasayfa" class="logo-container">
+          <div class="brand-wrapper">
+            <img
+              src="suvariler.png"
+              alt="Süvariler Amblem"
+              class="navbar-logo"
+            />
+          </div>
+        </a>
+
+        <!-- MOBİL MENÜ BUTONU -->
+        <div class="menu-toggle" id="mobile-menu">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#anasayfa">Anasayfa</a></li>
+          <li><a href="#hakkimizda">Hakkımızda</a></li>
+          <li><a href="#hizmetlerimiz">Hizmetlerimiz</a></li>
+          <li><a href="#galeri">Galeri</a></li>
+          <li><a href="#iletisim">İletişim</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section id="anasayfa">
+      <canvas id="motion-canvas"></canvas>
+
+      <div class="hero-content">
+        <h1>Yaşam Alanlarınıza Ahşabın Sıcaklığını Taşıyoruz</h1>
+        <p>
+          Süvariler Mobilya ve Dekorasyon olarak, yılların getirdiği ustalık ve
+          modern tasarımları harmanlıyor, hayalinizdeki mobilyaları üretiyoruz.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#iletisim" class="btn">Bize Ulaşın</a>
+          <a href="#galeri" class="btn btn-outline">Ürünlerimizi Gör</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="hakkimizda">
+      <h2 class="section-title">Hakkımızda</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <h3>Babadan Oğula Aktarılan Ustalık Geleneği</h3>
+          <p>
+            Süvariler Mobilya olarak, mobilya tutkusunu bir yaşam biçimine
+            dönüştürdüğümüz bu yolculuğa 80'li yıllardan beri devam etmekteyiz.
+            Kurucumuzun el emeği ve göz nuruyla şekillenen ilk original
+            ürünlerimiz, bugün hâlâ markamızın özünü yansıtan kalite ve güvenin
+            temelini oluşturuyor. Yıllar içinde edindiğimiz tecrübe, değişen
+            tasarım anlayışları ve gelişen üretim teknolojileriyle birleşerek,
+            Süvariler Mobilya’yı sadece bir mobilya üreticisi değil, aynı
+            zamanda yaşam alanlarını yeniden tasarlayan bir marka hâline
+            getirdi. Babadan oğula aktarılan bu meslek geleneğiyle, her
+            parçamızda sadece ahşabı değil; emeği, ustalığı ve sadakati
+            işliyoruz.
+          </p>
+          <br />
+          <p>
+            <strong>Misyonumuz;</strong> estetik ve konforu bir araya getirerek
+            evlerinize sıcaklık ve karakter katmak,
+            <strong>vizyonumuz</strong> ise sektörde yenilikçi, güvenilir ve
+            sürdürülebilir bir marka olmaktır.
+          </p>
+          <br />
+          <p>
+            "Siz hayal edin, biz mobilyaya dönüştürelim."
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="hizmetlerimiz">
+      <h2 class="section-title">Hizmetlerimiz</h2>
+
+      <div class="drawer-stage" id="drawer-stage-box">
+        <div class="cabinet-box">
+          <div class="drawer-stack"></div>
+          <div class="drawer-front">
+            <div class="drawer-handle"></div>
+          </div>
+        </div>
+
+        <div class="services-grid-drawer">
+          <div class="service-card-item">
+            <h3>Mutfak Dolabı</h3>
+            <p>
+              Kullanışlı, modern ve mekana tam uyumlu; akrilik ve lake
+              tasarımlar.
+            </p>
+          </div>
+          <div class="service-card-item">
+            <h3>Yatak Odası</h3>
+            <p>Konforlu yatak odası takımları, ray dolap ve giyinme odası.</p>
+          </div>
+          <div class="service-card-item">
+            <h3>Banyo Dolabı</h3>
+            <p>
+              Suya ve neme dayanıklı, estetik ve fonksiyonel banyo mobilyaları.
+            </p>
+          </div>
+          <div class="service-card-item">
+            <h3>Genç Odası</h3>
+            <p>
+              Gençlerin enerjisine uygun ergonomik çalışma ve dinlenme alanları.
+            </p>
+          </div>
+          <div class="service-card-item">
+            <h3>Bebek Odası</h3>
+            <p>
+              Bebekleriniz için güvenli, sağlığa zararsız sevimli mobilyalar.
+            </p>
+          </div>
+          <div class="service-card-item">
+            <h3>Oturma Odası</h3>
+            <p>Salonunuza şıklık katacak özel ölçü TV üniteleri ve sehpalar.</p>
+          </div>
+          <div class="service-card-item">
+            <h3>Ofis Mobilyaları</h3>
+            <p>
+              Ticari alanlar ve çalışma masaları için verimliliği artıran
+              çözümler.
+            </p>
+          </div>
+          <div class="service-card-item">
+            <h3>Özel Tasarımlar</h3>
+            <p>
+              Ahşabın doğallığını epoksi ve yenilikçi detaylarla buluşturan
+              üretimler.
+            </p>
+          </div>
+          <div class="service-card-item">
+            <h3>Kapı Tasarımları</h3>
+            <p>
+              CNC desenli özel üretim şık ve dayanıklı iç/dış mekan kapıları.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="galeri">
+      <h2 class="section-title">Galeri</h2>
+
+      <div class="gallery-drawer-stage" id="gallery-drawer-stage-box">
+        <div class="cabinet-box">
+          <div class="drawer-stack"></div>
+          <div class="drawer-front">
+            <div class="drawer-handle"></div>
+          </div>
+        </div>
+
+        <div id="gallery-categories-view" class="gallery-grid-drawer">
+          <div
+            class="cabinet-card cabinet-mutfak"
+            data-target="mutfak"
+            data-title="Mutfak Dolabı"
+          >
+            <div class="cabinet-door left"></div>
+            <div class="cabinet-door right"></div>
+            <div class="cabinet-label">Mutfak Dolabı</div>
+            <div class="cabinet-inside">
+              <i class="fa-solid fa-kitchen-set"></i>
+              <h3>Mutfak Modelleri</h3>
+            </div>
+          </div>
+
+          <div
+            class="cabinet-card cabinet-yatak"
+            data-target="yatak"
+            data-title="Yatak Odası"
+          >
+            <div class="cabinet-door left"></div>
+            <div class="cabinet-door right"></div>
+            <div class="cabinet-label">Yatak Odası</div>
+            <div class="cabinet-inside">
+              <i class="fa-solid fa-bed"></i>
+              <h3>Yatak Odası Modelleri</h3>
+            </div>
+          </div>
+
+          <div
+            class="cabinet-card cabinet-banyo"
+            data-target="banyo"
+            data-title="Banyo Dolabı"
+          >
+            <div class="cabinet-door left"></div>
+            <div class="cabinet-door right"></div>
+            <div class="cabinet-label">Banyo Dolabı</div>
+            <div class="cabinet-inside">
+              <i class="fa-solid fa-sink"></i>
+              <h3>Banyo Modelleri</h3>
+            </div>
+          </div>
+
+          <div
+            class="cabinet-card cabinet-genc"
+            data-target="genc"
+            data-title="Genç Odası"
+          >
+            <div class="cabinet-door left"></div>
+            <div class="cabinet-door right"></div>
+            <div class="cabinet-label">Genç Odası</div>
+            <div class="cabinet-inside">
+              <i class="fa-solid fa-user-graduate"></i>
+              <h3>Genç Odası Modelleri</h3>
+            </div>
+          </div>
+
+          <div
+            class="cabinet-card cabinet-bebek"
+            data-target="bebek"
+            data-title="Bebek Odası"
+          >
+            <div class="cabinet-door left"></div>
+            <div class="cabinet-door right"></div>
+            <div class="cabinet-label">Bebek Odası</div>
+            <div class="cabinet-inside">
+              <i class="fa-solid fa-baby-carriage"></i>
+              <h3>Bebek Odası Modelleri</h3>
+            </div>
+          </div>
+
+          <div
+            class="cabinet-card cabinet-oturma"
+            data-target="oturma"
+            data-title="Oturma Odası"
+          >
+            <div class="cabinet-door left"></div>
+            <div class="cabinet-door right"></div>
+            <div class="cabinet-label">Oturma Odası</div>
+            <div class="cabinet-inside">
+              <i class="fa-solid fa-couch"></i>
+              <h3>Oturma Odası Modelleri</h3>
+            </div>
+          </div>
+
+          <div
+            class="cabinet-card cabinet-ofis"
+            data-target="ofis"
+            data-title="Ofis Mobilyaları"
+          >
+            <div class="cabinet-door left"></div>
+            <div class="cabinet-door right"></div>
+            <div class="cabinet-label">Ofis Mobilyaları</div>
+            <div class="cabinet-inside">
+              <i class="fa-solid fa-briefcase"></i>
+              <h3>Ofis Çözümleri</h3>
+            </div>
+          </div>
+
+          <div
+            class="cabinet-card cabinet-ozel"
+            data-target="ozel"
+            data-title="Özel Tasarımlar"
+          >
+            <div class="cabinet-door left"></div>
+            <div class="cabinet-door right"></div>
+            <div class="cabinet-label">Özel Tasarımlar</div>
+            <div class="cabinet-inside">
+              <i class="fa-solid fa-pen-ruler"></i>
+              <h3>Kişiye Özel Üretim</h3>
+            </div>
+          </div>
+
+          <div
+            class="cabinet-card cabinet-kapi"
+            data-target="kapi"
+            data-title="Kapı Tasarımları"
+          >
+            <div class="cabinet-door left"></div>
+            <div class="cabinet-door right"></div>
+            <div class="cabinet-label">Kapı Tasarımları</div>
+            <div class="cabinet-inside">
+              <i class="fa-solid fa-door-open"></i>
+              <h3>İç ve Dış Kapılar</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="gallery-details-view">
+        <div class="back-btn-container">
+          <div class="category-title-display" id="active-category-title">
+            Kategori
+          </div>
+          <button id="back-to-categories" class="btn btn-outline">
+            <i class="fa-solid fa-arrow-left"></i> Kategorilere Dön
+          </button>
+        </div>
+
+        <div class="gallery-grid" id="gallery-items-container">
+          <!-- Mutfak -->
+          <div
+            class="gallery-item"
+            data-category="mutfak"
+            onclick="openModal('resimler/Mutfak/mutfak1.jpg')"
+            style="
+              background-image: url(&quot;resimler/Mutfak/mutfak1.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="mutfak"
+            onclick="openModal('resimler/Mutfak/mutfak2.jpg')"
+            style="
+              background-image: url(&quot;resimler/Mutfak/mutfak2.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="mutfak"
+            onclick="openModal('resimler/Mutfak/mutfak3.jpg')"
+            style="
+              background-image: url(&quot;resimler/Mutfak/mutfak3.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="mutfak"
+            onclick="openModal('resimler/Mutfak/mutfak4.jpg')"
+            style="
+              background-image: url(&quot;resimler/Mutfak/mutfak4.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="mutfak"
+            onclick="openModal('resimler/Mutfak/mutfak5.jpg')"
+            style="
+              background-image: url(&quot;resimler/Mutfak/mutfak5.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="mutfak"
+            onclick="openModal('resimler/Mutfak/mutfak6.jpg')"
+            style="
+              background-image: url(&quot;resimler/Mutfak/mutfak6.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="mutfak"
+            onclick="openModal('resimler/Mutfak/mutfak7.jpg')"
+            style="
+              background-image: url(&quot;resimler/Mutfak/mutfak7.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="mutfak"
+            onclick="openModal('resimler/Mutfak/mutfak8.jpg')"
+            style="
+              background-image: url(&quot;resimler/Mutfak/mutfak8.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="mutfak"
+            onclick="openModal('resimler/Mutfak/mutfak9.jpg')"
+            style="
+              background-image: url(&quot;resimler/Mutfak/mutfak9.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="mutfak"
+            onclick="openModal('resimler/Mutfak/mutfak10.jpg')"
+            style="
+              background-image: url(&quot;resimler/Mutfak/mutfak10.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+
+          <!-- Yatak -->
+          <div
+            class="gallery-item"
+            data-category="yatak"
+            onclick="openModal('resimler/Yatak/yatak1.jpg')"
+            style="
+              background-image: url(&quot;resimler/Yatak/yatak1.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="yatak"
+            onclick="openModal('resimler/Yatak/yatak2.jpg')"
+            style="
+              background-image: url(&quot;resimler/Yatak/yatak2.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="yatak"
+            onclick="openModal('resimler/Yatak/yatak3.jpg')"
+            style="
+              background-image: url(&quot;resimler/Yatak/yatak3.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="yatak"
+            onclick="openModal('resimler/Yatak/yatak4.jpg')"
+            style="
+              background-image: url(&quot;resimler/Yatak/yatak4.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="yatak"
+            onclick="openModal('resimler/Yatak/yatak5.jpg')"
+            style="
+              background-image: url(&quot;resimler/Yatak/yatak5.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="yatak"
+            onclick="openModal('resimler/Yatak/yatak6.jpg')"
+            style="
+              background-image: url(&quot;resimler/Yatak/yatak6.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+
+          <!-- Banyo -->
+          <div
+            class="gallery-item"
+            data-category="banyo"
+            onclick="openModal('resimler/Banyo/banyo1.jpg')"
+            style="
+              background-image: url(&quot;resimler/Banyo/banyo1.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="banyo"
+            onclick="openModal('resimler/Banyo/banyo2.jpg')"
+            style="
+              background-image: url(&quot;resimler/Banyo/banyo2.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="banyo"
+            onclick="openModal('resimler/Banyo/banyo3.jpg')"
+            style="
+              background-image: url(&quot;resimler/Banyo/banyo3.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="banyo"
+            onclick="openModal('resimler/Banyo/banyo4.jpg')"
+            style="
+              background-image: url(&quot;resimler/Banyo/banyo4.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="banyo"
+            onclick="openModal('resimler/Banyo/banyo5.jpg')"
+            style="
+              background-image: url(&quot;resimler/Banyo/banyo5.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+
+          <!-- Genç -->
+          <div
+            class="gallery-item"
+            data-category="genc"
+            onclick="openModal('resimler/Genc/genc1.jpg')"
+            style="
+              background-image: url(&quot;resimler/Genc/genc1.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="genc"
+            onclick="openModal('resimler/Genc/genc2.jpg')"
+            style="
+              background-image: url(&quot;resimler/Genc/genc2.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="genc"
+            onclick="openModal('resimler/Genc/genc3.jpg')"
+            style="
+              background-image: url(&quot;resimler/Genc/genc3.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="genc"
+            onclick="openModal('resimler/Genc/genc4.jpg')"
+            style="
+              background-image: url(&quot;resimler/Genc/genc4.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="genc"
+            onclick="openModal('resimler/Genc/genc5.jpg')"
+            style="
+              background-image: url(&quot;resimler/Genc/genc5.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="genc"
+            onclick="openModal('resimler/Genc/genc6.jpg')"
+            style="
+              background-image: url(&quot;resimler/Genc/genc6.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+
+          <!-- Bebek -->
+          <div
+            class="gallery-item"
+            data-category="bebek"
+            onclick="openModal('resimler/Bebek/bebek1.jpg')"
+            style="
+              background-image: url(&quot;resimler/Bebek/bebek1.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="bebek"
+            onclick="openModal('resimler/Bebek/bebek2.jpg')"
+            style="
+              background-image: url(&quot;resimler/Bebek/bebek2.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="bebek"
+            onclick="openModal('resimler/Bebek/bebek3.jpg')"
+            style="
+              background-image: url(&quot;resimler/Bebek/bebek3.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="bebek"
+            onclick="openModal('resimler/Bebek/bebek4.jpg')"
+            style="
+              background-image: url(&quot;resimler/Bebek/bebek4.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="bebek"
+            onclick="openModal('resimler/Bebek/bebek5.jpg')"
+            style="
+              background-image: url(&quot;resimler/Bebek/bebek5.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+
+          <!-- Oturma -->
+          <div
+            class="gallery-item"
+            data-category="oturma"
+            onclick="openModal('resimler/Oturma/oturma1.jpg')"
+            style="
+              background-image: url(&quot;resimler/Oturma/oturma1.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="oturma"
+            onclick="openModal('resimler/Oturma/oturma2.jpg')"
+            style="
+              background-image: url(&quot;resimler/Oturma/oturma2.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="oturma"
+            onclick="openModal('resimler/Oturma/oturma3.jpg')"
+            style="
+              background-image: url(&quot;resimler/Oturma/oturma3.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="oturma"
+            onclick="openModal('resimler/Oturma/oturma4.jpg')"
+            style="
+              background-image: url(&quot;resimler/Oturma/oturma4.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="oturma"
+            onclick="openModal('resimler/Oturma/oturma5.jpg')"
+            style="
+              background-image: url(&quot;resimler/Oturma/oturma5.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="oturma"
+            onclick="openModal('resimler/Oturma/oturma6.jpg')"
+            style="
+              background-image: url(&quot;resimler/Oturma/oturma6.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="oturma"
+            onclick="openModal('resimler/Oturma/oturma7.jpg')"
+            style="
+              background-image: url(&quot;resimler/Oturma/oturma7.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="oturma"
+            onclick="openModal('resimler/Oturma/oturma8.jpg')"
+            style="
+              background-image: url(&quot;resimler/Oturma/oturma8.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="oturma"
+            onclick="openModal('resimler/Oturma/oturma9.jpg')"
+            style="
+              background-image: url(&quot;resimler/Oturma/oturma9.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="oturma"
+            onclick="openModal('resimler/Oturma/oturma10.jpg')"
+            style="
+              background-image: url(&quot;resimler/Oturma/oturma10.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+
+          <!-- Ofis -->
+          <div
+            class="gallery-item"
+            data-category="ofis"
+            onclick="openModal('resimler/Ofis/ofis1.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ofis/ofis1.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ofis"
+            onclick="openModal('resimler/Ofis/ofis2.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ofis/ofis2.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ofis"
+            onclick="openModal('resimler/Ofis/ofis3.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ofis/ofis3.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ofis"
+            onclick="openModal('resimler/Ofis/ofis4.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ofis/ofis4.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ofis"
+            onclick="openModal('resimler/Ofis/ofis5.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ofis/ofis5.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ofis"
+            onclick="openModal('resimler/Ofis/ofis6.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ofis/ofis6.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+
+          <!-- Özel -->
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel00.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel00.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel0.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel0.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel1.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel1.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel2.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel2.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel3.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel3.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel4.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel4.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel5.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel5.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel6.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel6.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel7.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel7.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel8.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel8.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel9.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel9.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel10.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel10.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel11.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel11.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel12.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel12.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel13.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel13.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel14.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel14.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel15.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel15.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel16.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel16.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel17.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel17.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel18.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel18.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel19.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel19.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel20.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel20.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel21.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel21.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel22.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel22.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel23.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel23.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel24.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel24.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel25.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel25.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel26.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel26.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel27.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel27.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel28.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel28.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel29.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel29.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel30.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel30.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel31.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel31.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel32.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel32.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel33.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel33.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel34.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel34.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel35.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel35.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel36.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel36.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel37.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel37.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel38.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel38.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel39.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel39.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel40.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel40.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel41.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel41.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel42.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel42.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="ozel"
+            onclick="openModal('resimler/Ozel/ozel43.jpg')"
+            style="
+              background-image: url(&quot;resimler/Ozel/ozel43.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+
+          <!-- Kapı -->
+          <div
+            class="gallery-item"
+            data-category="kapi"
+            onclick="openModal('resimler/Kapi/kapi1.jpg')"
+            style="
+              background-image: url(&quot;resimler/Kapi/kapi1.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="kapi"
+            onclick="openModal('resimler/Kapi/kapi2.jpg')"
+            style="
+              background-image: url(&quot;resimler/Kapi/kapi2.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="kapi"
+            onclick="openModal('resimler/Kapi/kapi3.jpg')"
+            style="
+              background-image: url(&quot;resimler/Kapi/kapi3.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="kapi"
+            onclick="openModal('resimler/Kapi/kapi4.jpg')"
+            style="
+              background-image: url(&quot;resimler/Kapi/kapi4.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+          <div
+            class="gallery-item"
+            data-category="kapi"
+            onclick="openModal('resimler/Kapi/kapi5.jpg')"
+            style="
+              background-image: url(&quot;resimler/Kapi/kapi5.jpg&quot;);
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+            "
+          ></div>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="iletisim">
+      <h2 class="section-title">İletişim</h2>
+      <div class="contact-layout">
+        <div class="contact-cards-container">
+          <a href="tel:05558189493" class="contact-card">
+            <i class="fa-solid fa-phone"></i>
+            <h4>0 (555) 818 94 93</h4>
+            <p>Hemen Ara</p>
+          </a>
+          <a
+            href="https://www.instagram.com/suvarilermobilya"
+            target="_blank"
+            class="contact-card"
+          >
+            <i class="fa-brands fa-instagram"></i>
+            <h4>@suvarilermobilya</h4>
+            <p>Takip Et</p>
+          </a>
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=Rabia+ana+mahallesi+1.+meydan+sokak+Cananoğlu+apartman+no+23+Yakutiye+Erzurum"
+            target="_blank"
+            class="contact-card"
+          >
+            <i class="fa-solid fa-location-dot"></i>
+            <h4>Adresimiz</h4>
+            <p>Haritada Gör / Yol Tarifi</p>
+          </a>
+        </div>
+        <p class="full-address-text">Rabia Ana Mahallesi 1.Meydan Sokak Cananoğlu Apartman No:23</p>
+      </div>
+    </section>
+
+    <div class="sticky-buttons-container">
+      <a
+        href="https://www.instagram.com/suvarilermobilya"
+        target="_blank"
+        class="sticky-btn"
+        title="Instagram Profilimiz"
+      >
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <a href="tel:05558189493" class="sticky-btn" title="Hemen Ara">
+        <i class="fa-solid fa-phone"></i>
+      </a>
+    </div>
+
+    <footer>
+      <p>© 2026 Süvariler Mobilya ve Dekorasyon. Tüm Hakları Saklıdır.</p>
+    </footer>
+
+    <!-- Resim Pop-up (Modal) İskeleti -->
+    <div id="myImageModal" class="image-modal">
+      <span class="image-modal-close" onclick="closeModal()">&times;</span>
+      <img class="image-modal-content" id="modalImageElement" src="" alt="Büyütülmüş Resim">
+    </div>
+
+    <script>
+      // 1. DİNAMİK CANVASI HAREKET ETTİRME VE TIKLAMA DALGASI EFEKTİ
+      const canvas = document.getElementById("motion-canvas");
+      const ctx = canvas.getContext("2d");
+
+      let bgImage = new Image();
+      bgImage.src = "hero-bg-clean.jpg";
+
+      let width = (canvas.width = window.innerWidth);
+      let height = (canvas.height = window.innerHeight);
+
+      let mouseX = 0,
+        mouseY = 0;
+      let targetX = 0,
+        targetY = 0;
+      let tick = 0;
+      const ripples = [];
+
+      window.addEventListener("resize", () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      });
+
+      window.addEventListener("mousemove", (e) => {
+        mouseX = e.clientX / width - 0.5;
+        mouseY = e.clientY / height - 0.5;
+      });
+
+      canvas.addEventListener("click", (e) => {
+        ripples.push({
+          x: e.clientX,
+          y: e.clientY,
+          radius: 5,
+          maxRadius: 150,
+          alpha: 1,
+        });
+      });
+
+      bgImage.onload = function () {
+        animate();
+      };
+
+      function animate() {
+        tick += 0.003;
+        targetX += (mouseX - targetX) * 0.05;
+        targetY += (mouseY - targetY) * 0.05;
+
+        ctx.clearRect(0, 0, width, height);
+
+        let scale =
+          Math.max(width / bgImage.width, height / bgImage.height) * 1.1;
+        let imgWidth = bgImage.width * scale;
+        let imgHeight = bgImage.height * scale;
+
+        let xPos = (width - imgWidth) / 2 + targetX * 35 + Math.sin(tick) * 10;
+        let yPos =
+          (height - imgHeight) / 2 + targetY * 35 + Math.cos(tick * 0.8) * 10;
+
+        ctx.drawImage(bgImage, xPos, yPos, imgWidth, imgHeight);
+
+        for (let i = ripples.length - 1; i >= 0; i--) {
+          let rp = ripples[i];
+          rp.radius += 3;
+          rp.alpha -= 0.02;
+
+          if (rp.alpha <= 0) {
+            ripples.splice(i, 1);
+            continue;
+          }
+
+          ctx.save();
+          ctx.beginPath();
+          ctx.arc(rp.x, rp.y, rp.radius, 0, Math.PI * 2);
+          ctx.strokeStyle = `rgba(212, 163, 115, ${rp.alpha})`;
+          ctx.lineWidth = 2;
+          ctx.stroke();
+          ctx.restore();
+        }
+
+        ctx.fillStyle = "rgba(26, 15, 5, 0.6)";
+        ctx.fillRect(0, 0, width, height);
+
+        requestAnimationFrame(animate);
+      }
+
+      // 2. HİZMETLERİMİZ ÇEKMECE ANİMASYONU TETİKLEYİCİSİ
+      const drawerStageBox = document.getElementById("drawer-stage-box");
+
+      const drawerObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              drawerStageBox.classList.add("animate");
+            }
+          });
+        },
+        { threshold: 0.15 },
+      );
+
+      if (drawerStageBox) {
+        drawerObserver.observe(drawerStageBox);
+      }
+
+      // 3. GALERİ ÇEKMECE ANİMASYONU TETİKLEYİCİSİ
+      const galleryDrawerBox = document.getElementById(
+        "gallery-drawer-stage-box",
+      );
+
+      const galleryObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              galleryDrawerBox.classList.add("animate-gallery");
+            }
+          });
+        },
+        { threshold: 0.25 },
+      );
+
+      if (galleryDrawerBox) {
+        galleryObserver.observe(galleryDrawerBox);
+      }
+
+      // 4. GALERİ KAPAK AÇILMA VE FİLTRELEME İŞLEMLERİ
+      const categoryCards = document.querySelectorAll(".cabinet-card");
+      const categoriesView = document.getElementById("gallery-categories-view");
+      const detailsView = document.getElementById("gallery-details-view");
+      const backBtn = document.getElementById("back-to-categories");
+      const galleryItemsNew = document.querySelectorAll(
+        "#gallery-items-container .gallery-item",
+      );
+      const activeCategoryTitle = document.getElementById(
+        "active-category-title",
+      );
+
+      categoryCards.forEach((card) => {
+        card.addEventListener("click", function () {
+          this.classList.add("open");
+
+          const targetCategory = this.getAttribute("data-target");
+          const categoryTitle = this.getAttribute("data-title");
+
+          setTimeout(() => {
+            galleryDrawerBox.style.display = "none";
+            categoriesView.style.display = "none";
+            detailsView.style.display = "block";
+            activeCategoryTitle.textContent = categoryTitle;
+
+            galleryItemsNew.forEach((item) => {
+              if (item.getAttribute("data-category") === targetCategory) {
+                item.style.display = "block";
+              } else {
+                item.style.display = "none";
+              }
+            });
+
+            document
+              .getElementById("galeri")
+              .scrollIntoView({ behavior: "smooth" });
+          }, 750);
+        });
+      });
+
+      backBtn.addEventListener("click", () => {
+        detailsView.style.display = "none";
+        galleryDrawerBox.style.display = "flex";
+        categoriesView.style.display = "grid";
+        categoryCards.forEach((card) => card.classList.remove("open"));
+      });
+
+      // 5. NAVBAR SCROLL EFEKTİ (Aşağı inince şeffaflaşma)
+      const header = document.querySelector("header");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      });
+
+      // 6. MOBİL MENÜ İŞLEMLERİ
+      const mobileMenu = document.getElementById("mobile-menu");
+      const navLinks = document.getElementById("nav-links");
+      const navItems = document.querySelectorAll(".nav-links a");
+
+      // Hamburger ikona tıklandığında menüyü aç/kapat
+      mobileMenu.addEventListener("click", () => {
+        navLinks.classList.toggle("nav-active");
+
+        // İkonu Hamburger (bars) ve Çarpı (xmark) arasında değiştir
+        const icon = mobileMenu.querySelector("i");
+        if (navLinks.classList.contains("nav-active")) {
+          icon.classList.remove("fa-bars");
+          icon.classList.add("fa-xmark");
+        } else {
+          icon.classList.remove("fa-xmark");
+          icon.classList.add("fa-bars");
+        }
+      });
+
+      // Menüdeki bir linke tıklandığında menüyü otomatik kapat
+      navItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          navLinks.classList.remove("nav-active");
+          const icon = mobileMenu.querySelector("i");
+          icon.classList.remove("fa-xmark");
+          icon.classList.add("fa-bars");
+        });
+      });
+
+      // 7. RESİM POP-UP (LIGHTBOX) İŞLEMLERİ
+      function openModal(imageSrc) {
+        const modal = document.getElementById("myImageModal");
+        const modalImg = document.getElementById("modalImageElement");
+        
+        modal.style.display = "flex";
+        modalImg.src = imageSrc;
+      }
+
+      function closeModal() {
+        document.getElementById("myImageModal").style.display = "none";
+      }
+
+      // Arka plandaki siyah alana tıklayınca pop-up'ı kapat
+      window.onclick = function(event) {
+        const modal = document.getElementById("myImageModal");
+        if (event.target === modal) {
+          closeModal();
+        }
+      }
+    </script>
+  </body>
+</html>
